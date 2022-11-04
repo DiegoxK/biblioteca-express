@@ -29,7 +29,7 @@ https://nodejs.org/en/
 
 https://pnpm.io/installation
 
-**Instalacion rapida de pnpm**:
+**Instalación rápida de pnpm**:
 
 ```
 npm install -g pnpm
@@ -56,7 +56,7 @@ Para arrancar el servidor, debemos inicializar un **Cluster de MongoDB**.
 
 _La base de datos puede ser local o hosteada sobre Mongo Atlas_.
 
-El siguiente paso es crear el archivo **.env** en la raiz de la carpeta _/server_ y crear una variable de entorno llamada **DATABASE_URI** a la que le asignaremos el String de coneccion con la base de datos.
+El siguiente paso es crear el archivo **.env** en la raiz de la carpeta _/server_ y crear una variable de entorno llamada **DATABASE_URI** a la que le asignaremos el String de conexión con la base de datos.
 
 ```
 DATABASE_URI=mongodb+srv://admin:<password>@cluster0.1vqd4b7.mongodb.net/?retryWrites=true&w=majority
@@ -71,9 +71,10 @@ pnpm start
 
 ### Instalación FrontEnd 🔧
 
-En primera instancia debemos instalar las dependencias del frontend. Para esto debemos ubicarnos en la carpeta _/client_ y ejecutar:
+En primera instancia debemos instalar las dependencias del frontend. Para esto debemos ubicarnos en la carpeta _/client_ en una nueva instancia de la consola en mi carpeta _biblioteca-express_ y ejecutar:
 
 ```
+cd client
 pnpm install
 ```
 
@@ -83,7 +84,7 @@ Luego para inicializar el servidor local con vite ejecutamos :
 pnpm dev
 ```
 
-Lo que ejecutara mi aplicacion en modo de desarrollo en un host local:
+Lo que ejecutara mi aplicación en modo de desarrollo en un host local:
 
 ```
   VITE v3.2.2  ready in 1619 ms
@@ -94,7 +95,7 @@ Lo que ejecutara mi aplicacion en modo de desarrollo en un host local:
 
 "Todas las llamadas a la base de datos se realizan a la ruta **http://localhost:3200/api**"
 
-"Asegurarse de tener inizializado el servidor del backend para ver la informacion en el en frontend"
+"Asegurarse de tener inicializado el servidor del backend para ver la información en el en frontend"
 
 ## Construido con 🛠️
 
