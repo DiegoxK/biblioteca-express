@@ -12,12 +12,7 @@ API para una biblioteca en Express
 
 6. cualquier base de datos a libre elección (mongo o sqlite) - [X]
 
-7. Entregar en repositorio de GitHub y con un readme file que indique
-   los pasos que debo hacer para ejecutar la APP en mi computadora
-   y mandar la url del repo a mi correo camilomontoya2@gmail.com
-   fecha de entrega: 04/11/2022 6pm - [X]
-
-8. implementar typescript tanto en frontend como en backend - [X]
+7. implementar typescript tanto en frontend como en backend - [X]
 
 # Biblioteca en Express y React
 
