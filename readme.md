@@ -18,3 +18,60 @@ API para una biblioteca en Express
    fecha de entrega: 04/11/2022 6pm []
 
 8. implementar typescript tanto en frontend como en backend []
+
+# Biblioteca en Express y React
+
+### **Pre-requisitos** 📋
+
+Para el correcto funcionamiento del proyecto, es necesario tener
+
+```
+nodeJs
+pnpm
+```
+
+https://nodejs.org/en/
+
+https://pnpm.io/installation
+
+**Instalacion rapida de pnpm**:
+
+```
+npm install -g pnpm
+```
+
+### **Instalación BackEnd** 🔧
+
+En primera instancia debemos instalar las dependencias del servidor. Para esto debemos ubicarnos en la carpeta _/server_ y ejecutar:
+
+```
+pnpm install
+```
+
+Para arrancar el servidor, debemos inicializar un **Cluster de MongoDB**.
+
+_La base de datos puede ser local o hosteada sobre Mongo Atlas_.
+
+El siguiente paso es crear el archivo **.env** en la raiz de la carpeta _/server_ y crear una variable de entorno llamada **DATABASE_URI** a la que le asignaremos el String de coneccion con la base de datos.
+
+```
+DATABASE_URI=mongodb+srv://admin:<password>@cluster0.1vqd4b7.mongodb.net/?retryWrites=true&w=majority
+
+```
+
+Finalmente ejecutar:
+
+```
+pnpm build && pnpm start
+```
+
+### Instalación FrontEnd 🔧
+
+## Construido con 🛠️
+
+La aplicación esta construida bajo el stack MERN:
+
+- MongoDB
+- ExpressJs
+- ReactJs
+- NodeJs
