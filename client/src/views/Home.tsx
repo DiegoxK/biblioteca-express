@@ -103,9 +103,9 @@ function Home() {
           ) : logs.length !== 0 ? (
             logs.map((log) => {
               return (
-                <>
-                  <p key={log._id}>{logger(log)}</p>
-                </>
+                <div key={log._id}>
+                  <p>{logger(log)}</p>
+                </div>
               );
             })
           ) : (
