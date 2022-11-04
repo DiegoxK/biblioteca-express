@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 import user from "../models/user";
 import book from "../models/book";
+import { createLog } from "./loggin-controller";
 
 type Book = {
   nombre: string;
@@ -23,18 +24,22 @@ const borrowBook = async (req: Request, res: Response) => {
   if (Book && User) {
     if (Book.prestado) {
       return res.status(409).json({ message: "Book already borrowed" });
-    } else {
-      Book.prestado = true;
-      User.librosPrestados.push(Book._id);
-
-      await Book.save();
-      await User.save();
-
-      return res.json(User);
     }
-  } else {
-    return res.status(404).json({ message: "Book or user not found" });
+    Book.prestado = true;
+    User.librosPrestados.push(Book._id);
+
+    await Book.save();
+    await User.save();
+
+    await createLog(
+      "Borrow book",
+      `${User.nombre} ${User.apellido}`,
+      Book.nombre
+    );
+
+    return res.json(User);
   }
+  return res.status(404).json({ message: "Book or user not found" });
 };
 
 const returnBook = async (req: Request, res: Response) => {
@@ -54,13 +59,17 @@ const returnBook = async (req: Request, res: Response) => {
       await Book.save();
       await User.save();
 
+      await createLog(
+        "Return book",
+        `${User.nombre} ${User.apellido}`,
+        Book.nombre
+      );
+
       return res.json(User);
-    } else {
-      return res.status(409).json({ message: "Book already returned" });
     }
-  } else {
-    return res.status(404).json({ message: "Book or User not found" });
+    return res.status(409).json({ message: "Book already returned" });
   }
+  return res.status(404).json({ message: "Book or User not found" });
 };
 
 const getUsers = async (req: Request, res: Response) => {
@@ -92,6 +101,7 @@ const createUser = async (req: Request, res: Response) => {
 
   try {
     await newUser.save();
+    await createLog("Create user", `${nombre} ${apellido}`);
     res.status(201).json(newUser);
   } catch (error) {
     res.status(409).json({ message: "Server Error" });
@@ -108,7 +118,14 @@ const updateUser = async (req: Request, res: Response) => {
     { new: true }
   );
 
-  return res.json(updatedUser);
+  if (updatedUser) {
+    await createLog(
+      "Update user",
+      `${updatedUser.nombre} ${updatedUser.apellido}`
+    );
+    return res.json(updatedUser);
+  }
+  return res.status(404).json({ message: "User not found" });
 };
 
 const deleteUser = async (req: Request, res: Response) => {
@@ -118,13 +135,12 @@ const deleteUser = async (req: Request, res: Response) => {
   if (User) {
     if (User.librosPrestados.length === 0) {
       await user.findByIdAndDelete(id);
+      await createLog("Delete user", `${User.nombre} ${User.apellido}`);
       return res.json({ message: "User deleted" });
-    } else {
-      return res.status(409).json({ message: "User has borrowed books" });
     }
-  } else {
-    return res.status(404).json({ message: "User not found" });
+    return res.status(409).json({ message: "User has borrowed books" });
   }
+  return res.status(404).json({ message: "User not found" });
 };
 
 export {
