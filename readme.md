@@ -1,19 +1,5 @@
 API para una biblioteca en Express
 
-1. hay que hacer la UI también, en react - [X]
-
-2. la biblioteca tiene libros y de cada libro solo tiene un ejemplar - [X]
-
-3. la app necesita la entidad usuarios, a los cuales les vamos a prestar los libros - [X]
-
-4. llevar el registro de esos prestamos y mostrar ese registro - [X]
-
-5. CRUD (api/UI) de usuarios (a los que les prestamos los libros) y de libros (no hay necesidad de crear autores) - [X]
-
-6. cualquier base de datos a libre elección (mongo o sqlite) - [X]
-
-7. implementar typescript tanto en frontend como en backend - [X]
-
 # Biblioteca en Express y React
 
 ### **Pre-requisitos** 📋
