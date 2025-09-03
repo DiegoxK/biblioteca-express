@@ -1,5 +1,7 @@
 # Biblioteca en Express y React
 
+Este es un proyecto para un challenge de programación. La idea era construir una aplicación full-stack funcional en menos de un día. Este proyecto es una demostración de mis habilidades con el stack MERN y mi capacidad para desarrollar rápidamente aplicaciones de calidad.
+
 <div>
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=white" alt="React"/>
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite"/>
@@ -16,7 +18,41 @@
   
 <img width="1360" height="768" alt="{0454786A-E588-4107-859F-8BE7B1D311E9}" src="https://github.com/user-attachments/assets/16811707-8229-42d6-b7a6-6b67f900c237" />
 
-API para una biblioteca en Express
+## ¿Qué hace la aplicación?
+
+Es un sistema de gestión para una biblioteca. Puedes agregar, editar y eliminar libros y usuarios. También puedes prestar y devolver libros, y todo queda registrado en un historial de actividades.
+
+## Features
+
+- **CRUD completo:** Libros y usuarios.
+- **Sistema de préstamos:** Prestar y devolver libros.
+- **Registro de actividades:** Log de prestamos.
+
+## Construido con 🛠️
+
+La aplicación está construida bajo el stack MERN:
+
+### Frontend
+
+- **React**
+- **TypeScript**
+- **Tailwind CSS**
+- **Vite**
+- **Axios**
+- **React Icons**
+
+### Backend
+
+- **Node.js**
+- **Express**
+- **MongoDB**
+- **Mongoose**
+- **TypeScript**
+- **dotenv**
+- **cors**
+- **morgan**
+
+## Instalación 🔧
 
 ### **Pre-requisitos** 📋
 
@@ -42,7 +78,7 @@ npm install -g pnpm
 Para descargar el proyecto primero se debe ejecutar el siguiente comando en la consola
 
 ```
-git clone https://github.com/DiegoxK/biblioteca-express
+git clone https://github.com/DiegoxK/Biblioteca-Express
 cd biblioteca-express
 ```
 
@@ -99,11 +135,30 @@ Lo que ejecutara mi aplicación en modo de desarrollo en un host local:
 
 "Asegurarse de tener inicializado el servidor del backend para ver la información en el en frontend"
 
-## Construido con 🛠️
+## API Endpoints
 
-La aplicación esta construida bajo el stack MERN:
+Todos los endpoints están prefijados con `/api`.
 
-- MongoDB
-- ExpressJs
-- ReactJs
-- NodeJs
+### Libros
+
+- `GET /books`: Obtiene todos los libros.
+- `GET /books/available`: Obtiene todos los libros disponibles.
+- `GET /books/borrowed`: Obtiene todos los libros prestados.
+- `GET /books/:id`: Obtiene un libro por su ID.
+- `POST /books`: Crea un nuevo libro.
+- `PUT /books/:id`: Actualiza un libro por su ID.
+- `DELETE /books/:id`: Elimina un libro por su ID.
+
+### Usuarios
+
+- `GET /users`: Obtiene todos los usuarios.
+- `GET /users/:id`: Obtiene un usuario por su ID.
+- `POST /users`: Crea un nuevo usuario.
+- `PUT /users/:id`: Actualiza un usuario por su ID.
+- `DELETE /users/:id`: Elimina un usuario por su ID.
+- `POST /users/:id/borrow`: Presta un libro.
+- `POST /users/:id/return`: Devuelve un libro.
+
+### Logs
+
+- `GET /logs`: Obtiene todos los registros de actividad.
